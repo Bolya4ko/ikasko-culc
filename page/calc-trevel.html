@@ -1,79 +1,82 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
 	<title>Калькулятор TREVEL</title>
 </head>
+
 <body>
-						<a class="back-btn" href="../page/personal-insurance.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-						xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
-						<g>
-							<path
-								d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
-								fill="#000000" opacity="1" data-original="#000000"></path>
-						</g>
-					</svg></span> Назад</a>
-  <h1 class="title">Калькулятор TREVEL</h1>
-
-  <div class="section">
-    <label>Дата початку:</label>
-    <input type="date" id="startDate">
-    <label>Дата закінчення:</label>
-    <input type="date" id="endDate">
-    <p id="daysMessage" style="color:red;"></p>
-  </div>
-
-	  <div class="section result" id="daysCount">Кількість днів: 0</div>
-
-  <div class="section">
-    <label>Страхова сума:</label>
-    <label><input type="radio" name="sum" value="30000" checked>30 000</label>
-    <label><input type="radio" name="sum" value="50000">50 000</label>
-  </div>
-
-  <div class="section">
-    <label>Зона покриття:</label>
-    <label><input type="radio" name="zone" value="0.85">СНД</label>
-    <label><input type="radio" name="zone" value="2">Цілий світ</label>
-    <label><input type="radio" name="zone" value="1" checked>Європа, Єгипет, Кіпр, Грузія, Туреччина</label>
-  </div>
-
-  <div class="section">
-    <label>Вік застрахованого:</label>
-    <label><input type="radio" name="age" value="2">до 1 року</label>
-    <label><input type="radio" name="age" value="1.5">від 1 до 8 років</label>
-    <label><input type="radio" name="age" value="1" checked>від 8 до 60 років</label>
-    <label><input type="radio" name="age" value="2">від 60 до 75 років</label>
-  </div>
+	<a class="back-btn" href="../page/personal-insurance.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+				xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+				<g>
+					<path
+						d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+						fill="#000000" opacity="1" data-original="#000000"></path>
+				</g>
+			</svg></span> Назад</a>
+	<h1 class="title">Калькулятор TREVEL</h1>
 
 	<div class="section">
-  <label>Оберіть валюту розрахунку:</label>
-  <label><input type="radio" name="currency" value="euro" checked>Євро</label>
-  <label><input type="radio" name="currency" value="usd">Долар</label>
-</div>
+		<label>Дата початку:</label>
+		<input type="date" id="startDate">
+		<label>Дата закінчення:</label>
+		<input type="date" id="endDate">
+		<p id="daysMessage" style="color:red;"></p>
+	</div>
+
+	<div class="section result" id="daysCount">Кількість днів: 0</div>
+
+	<div class="section">
+		<label>Страхова сума:</label>
+		<label><input type="radio" name="sum" value="30000" checked>30 000</label>
+		<label><input type="radio" name="sum" value="50000">50 000</label>
+	</div>
+
+	<div class="section">
+		<label>Зона покриття:</label>
+		<label><input type="radio" name="zone" value="0.85">СНД</label>
+		<label><input type="radio" name="zone" value="2">Цілий світ</label>
+		<label><input type="radio" name="zone" value="1" checked>Європа, Єгипет, Кіпр, Грузія, Туреччина</label>
+	</div>
+
+	<div class="section">
+		<label>Вік застрахованого:</label>
+		<label><input type="radio" name="age" value="2">до 1 року</label>
+		<label><input type="radio" name="age" value="1.5">від 1 до 8 років</label>
+		<label><input type="radio" name="age" value="1" checked>від 8 до 60 років</label>
+		<label><input type="radio" name="age" value="2">від 60 до 75 років</label>
+	</div>
+
+	<div class="section">
+		<label>Оберіть валюту розрахунку:</label>
+		<label><input type="radio" name="currency" value="euro" checked>Євро</label>
+		<label><input type="radio" name="currency" value="usd">Долар</label>
+	</div>
 
 
-  <div class="section result" id="result">Вартість полісу: 0 грн</div>
-	
-<div class="section">
-  <label for="note">Нотатка:</label>
-  <textarea id="note" rows="3" placeholder="Введіть додаткову інформацію..." style="width:100%;"></textarea>
-</div>
+	<div class="section result" id="result">Вартість полісу: 0 грн</div>
+
+	<div class="section">
+		<label for="note">Нотатка:</label>
+		<textarea id="note" rows="3" placeholder="Введіть додаткову інформацію..." style="width:100%;"></textarea>
+	</div>
 
 	<button id="sendTelegram">Надіслати в Telegram</button>
 	<p id="telegramStatus"></p>
 
-						<a class="back-btn" href="../page/personal-insurance.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-						xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
-						<g>
-							<path
-								d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
-								fill="#000000" opacity="1" data-original="#000000"></path>
-						</g>
-					</svg></span> Назад</a>
-  <script src="/js/main.js"></script>
+	<a class="back-btn" href="../page/personal-insurance.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+				xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+				<g>
+					<path
+						d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+						fill="#000000" opacity="1" data-original="#000000"></path>
+				</g>
+			</svg></span> Назад</a>
+	<script src="../js/main.js"></script>
 
 </body>
+
 </html>

@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/css/null.css">
-	<link rel="stylesheet" href="/css/style.css">
-	<link rel="stylesheet" href="/css/page/calc-estate.css">
+	<link rel="stylesheet" href="../css/null.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/page/calc-estate.css">
 	<title>Страхування майна</title>
 </head>
+
 <body>
-	<a class="back-btn" href="../index.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve"><g><path d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z" fill="#000000" opacity="1" data-original="#000000"></path></g></svg></span> Назад</a>
+	<a class="back-btn" href="../index.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+				xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+				<g>
+					<path
+						d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+						fill="#000000" opacity="1" data-original="#000000"></path>
+				</g>
+			</svg></span> Назад</a>
 	<h2>Калькулятор страхування майна Юр осіб</h2>
 	<label>Страхова сума: <input type="number" id="insuranceAmount" min="0"></label>
 	<h3>Категорія Нерухоме майно</h3>
-	<label><input type="radio" name="propertyType" value="0.00168"> Нежитлові приміщення (без оздоблення Офісні, адміністративні, торгові)</label><br>
-	<label><input type="radio" name="propertyType" value="0.00211"> Нежитлові приміщення (з оздобленням Офісні, адміністративні, торгові)</label><br>
-	<label><input type="radio" name="propertyType" value="0.00188"> Нежитлові/Виробничі/складські приміщення (без оздоблення)</label><br>
-	<label><input type="radio" name="propertyType" value="0.00221"> Нежитлові/Виробничі/складські приміщення (з оздобленням)</label><br>
-	<label><input type="radio" name="propertyType" value="0.00292"> Оздоблення нежитлових приміщень(Офісні, адміністративні, торгові)</label><br>
-	<label><input type="radio" name="propertyType" value="0.00288"> Оздоблення нежитлових приміщень(виробничі та складські)</label><br>
-	
+	<label><input type="radio" name="propertyType" value="0.00168"> Нежитлові приміщення (без оздоблення Офісні,
+		адміністративні, торгові)</label><br>
+	<label><input type="radio" name="propertyType" value="0.00211"> Нежитлові приміщення (з оздобленням Офісні,
+		адміністративні, торгові)</label><br>
+	<label><input type="radio" name="propertyType" value="0.00188"> Нежитлові/Виробничі/складські приміщення (без
+		оздоблення)</label><br>
+	<label><input type="radio" name="propertyType" value="0.00221"> Нежитлові/Виробничі/складські приміщення (з
+		оздобленням)</label><br>
+	<label><input type="radio" name="propertyType" value="0.00292"> Оздоблення нежитлових приміщень(Офісні,
+		адміністративні, торгові)</label><br>
+	<label><input type="radio" name="propertyType" value="0.00288"> Оздоблення нежитлових приміщень(виробничі та
+		складські)</label><br>
+
 	<h3>Додаткові опції</h3>
 	<label><input type="checkbox" id="equipmentCheck"> Промислове обладнання</label>
 	<input type="number" id="equipmentAmount" class="hidden" min="0"><br>
@@ -31,11 +46,19 @@
 	<input type="number" id="goodsAmount" class="hidden" min="0"><br>
 	<label><input type="checkbox" id="glassCheck"> Скло, вітрини</label>
 	<input type="number" id="glassAmount" class="hidden" min="0"><br>
-	
+
 	<button onclick="calculateInsurance()">Розрахувати</button>
-	
+
 	<h3 id="result" class="hidden">Вартість договору страхування складає: <span id="totalCost"></span> грн</h3>
-	<a class="back-btn" href="../index.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve"><g><path d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z" fill="#000000" opacity="1" data-original="#000000"></path></g></svg></span> Назад</a>
-	<script src="/js/page/calc-estate-ur.js"></script>
+	<a class="back-btn" href="../index.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+				xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+				<g>
+					<path
+						d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+						fill="#000000" opacity="1" data-original="#000000"></path>
+				</g>
+			</svg></span> Назад</a>
+	<script src="../js/page/calc-estate-ur.js"></script>
 </body>
+
 </html>
