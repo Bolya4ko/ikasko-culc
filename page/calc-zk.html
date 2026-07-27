@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/null.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/page/zk.css">
+	<title>Калькулятор страхового платежу</title>
+</head>
+
+<!-- zk-container -->
+
+<body>
+	<div class="wrapper">
+		<div class="container zk-container">
+			<a class="back-btn" href="../index.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+						xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+						<g>
+							<path
+								d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+								fill="#FFFFFF" opacity="1" data-original="#000000"></path>
+						</g>
+					</svg></span> Назад</a>
+			<h1 class="title">Калькулятор "Зелена Карта"</h1>
+			<div class="radio-group">
+				<label>
+					<input type="radio" name="program" value="1"> Варіант 1
+				</label>
+				<label>
+					<input type="radio" name="program" value="2" checked> Варіант 2
+				</label>
+			</div>
+
+			<label for="region">Категорія:</label>
+			<select id="region">
+				<option value="europe">Вся Європа</option>
+				<option value="moldova">Молдова та Азербайджан</option>
+			</select>
+
+			<label for="vehicle">Тип транспортного засобу:</label>
+			<select id="vehicle">
+				<option value="car">A - Легковий а/м на 8 чол. з вод.</option>
+				<option value="car2">А1 Легкові а/м 9 чол. + вод.</option>
+				<option value="car3">А2 Вант/вантажопасаж. а/м заг.мас.до 3500кг</option>
+				<option value="truck">Вантажний автомобіль</option>
+				<option value="motorcycle">Мотоцикл</option>
+				<option value="trailer">Причіп</option>
+				<option value="bus">Автобуси від 10 чол. з водієм</option>
+			</select>
+
+			<label for="duration">Термін дії полісу:</label>
+			<select id="duration">
+				<option value="15">15 днів</option>
+				<option value="21">21 день</option>
+				<option value="1m">1 міс.</option>
+				<option value="2m">2 міс.</option>
+				<option value="3m">3 міс.</option>
+				<option value="4m">4 міс.</option>
+				<option value="5m">5 міс.</option>
+				<option value="6m">6 міс.</option>
+				<option value="7m">7 міс.</option>
+				<option value="8m">8 міс.</option>
+				<option value="9m">9 міс.</option>
+				<option value="10m">10 міс.</option>
+				<option value="11m">11 міс.</option>
+				<option value="1y">1 рік</option>
+			</select>
+
+			<button onclick="calculateInsurance()">Розрахувати</button>
+			<div id="result"></div>
+		</div>
+		<div class="container-not">
+			<label for="notes">Нотатки:</label>
+			<textarea id="notes" placeholder="Введіть свої коментарі..." rows="3"></textarea>
+
+			<button id="sendBtn">Відправити в Telegram</button>
+			<div id="statusMessage" style="margin-top:10px; font-weight:bold;"></div>
+		</div>
+		<div>
+			<div class="container">
+				<details class="spollers__item">
+					<summary class="spollers__title">Типи ТЗ</summary>
+					<div class="spollers__body">
+						<p>A - Легкові а/м з місткістю менше 9 чоловік з водієм включно
+							Уточнення:
+							Виключно легкові автомобілі, в т.ч. мінівени, по яких кількість місць разом з водієм не перевищує 8.</p>
+						<p>Легкові Пасажирські а/м з місткістю 9 чоловік з водієм включно
+							Уточнення:
+							Виключно Легкові Пасажирські або, може бути Вантажопасажиські ТЗ та подібні МІКРОАВТОБУСИ/МІНІБУСИ, по
+							яких кількість
+							місць разом з водієм дорівнює 9.</p>
+						<p>Вантажні/вантажопасажирські а/м загальною масою до 3500 кг (7700 фунтів)
+							Уточнення:
+							В тому числі, коли в техпаспорті міститься уточнена інформація щодо специфікації ТЗ, наприклад зазначено:
+							вантажний,
+							вантажопасажирський, вантажний фургони, інше, що пов’язано з перевезенням вантажу (є визначення: вантаж….)
+						</p>
+						<p>Е - Автобуси з місткістю від 10 чоловік з водієм включно</p>
+						<p>С - Вантажні загальною масою від 3500 кг (7700 фунтів)</p>
+						<p>F - Причепи до вантажних та легкових автомобілів</p>
+						<p>В - Мотоцикли, моторолери, мопеди</p>
+					</div>
+				</details>
+				<div data-spollers class="spollers">
+					<details class="spollers__item">
+						<summary class="spollers__title">Територія дії ВСЯ СИСТЕМА</summary>
+						<div class="spollers__body">Австрія, Бельгія, Кіпр, Чехія, Німеччина, Данія, Іспанія, Естонія, Франція,
+							Фінляндія, Великобританія, Греція, Угорщина, Італія, Ірландія, Ісландія, Люксембург, Латвія, Литва,
+							Мальта, Норвегія, Нідерланди, Португалія, Польща, Словаччина, Словенія, Швейцарія, Албанія, Андорра,
+							Болгарія, Боснія та Герцеговина, Хорватія, Ізраїль, Іран, Марокко, Молдова, Македонія, Румунія, Сербія,
+							Чорногорія, Туніс, Туреччина</div>
+					</details>
+				</div>
+				<div data-spollers class="spollers">
+					<details class="spollers__item">
+						<summary class="spollers__title">Територія дії АМ</summary>
+						<div class="spollers__body">Азербайджан, Молдова</div>
+					</details>
+				</div>
+			</div>
+			<a class="link-zk-sum" target="_blank" href="/sourse/MinimumAmount.pdf">Ліміти страхових сум</a>
+
+		</div>
+	</div>
+	<script src="/js/page/zk.js"></script>
+</body>
+
+</html>

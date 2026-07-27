@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/null.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/page/ocv.css">
+	<title>Калькулятор ОСЦПВ</title>
+</head>
+
+<body>
+	<header class="header">
+		<a class="back-btn" href="../page/calc-ocv+dcv.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+					<g>
+						<path
+							d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+							fill="#000000" opacity="1" data-original="#000000"></path>
+					</g>
+				</svg></span> Назад</a>
+	</header>
+
+	<main class="main">
+		<div class="container">
+			<h1 class="title">Калькулятор ОСЦПВ ЮР. осіб</h1>
+			<form id="calculator-form">
+				<div class="section">
+					<h2>Тип ТЗ</h2>
+					<select id="pet-select">
+						<option name="k1" value="1">B1 легк. до 1600 куб.см.</option>
+						<option name="k1" value="0.82">B2 легк. 1601-2000 куб.см.</option>
+						<option name="k1" value="0.83">B3 легк. 2001-3000 куб.см.</option>
+						<option name="k1" value="0.84">B4 легк. більше 3000 куб.см.</option>
+						<option name="k1" value="1.54">B5 легк. електромобіль</option>
+						<option name="k1" value="1.1">C0 вант. до 2 тон</option>
+						<option name="k1" value="1.31">C1 вант. до 2 тон</option>
+						<option name="k1" value="1.73">C2 вант. понад 2 тони</option>
+						<option name="k1" value="2.04">D1 до 20 чоловік</option>
+						<option name="k1" value="2.28">D2 більше 20 чоловік</option>
+						<option name="k1" value="0.4">E причепи до вант. авт.</option>
+						<option name="k1" value="0.5">F причепи до легк.авт.</option>
+						<option name="k1" value="0.4">A1 Мотоцикли до 300 куб.см.</option>
+						<option name="k1" value="0.5">A2 Мотоцикли від 300 куб.см.</option>
+					</select>
+				</div>
+
+				<div class="section">
+					<h2>Місце реєстрації власника ТЗ</h2>
+					<label><input type="radio" name="k2" value="1.21">Київ, Львів</label>
+					<label><input type="radio" name="k2" value="1.01">Дніпро, Одеса, Харків, Бориспіль, Боярка, Бровари, Буча,
+						Васильків, Вишгород, Вишневе, Ірпінь, Обухів</label>
+					<label><input type="radio" name="k2" value="1.02">Донецьк, Запоріжжя, Кривий Ріг</label>
+					<label><input type="radio" name="k2" value="1.02">Зона 4</label>
+					<label><input type="radio" name="k2" value="1.01">Зона 5.1</label>
+					<label><input type="radio" name="k2" value="1">інші населені пункти України</label>
+					<label><input type="radio" name="k2" value="1">ТЗ які зареєстровані в інших країнах</label>
+				</div>
+
+				<div class="section">
+					<h2>Марка ТЗ</h2>
+					<label><input type="radio" name="k3" value="1.47">BMW</label>
+					<label><input type="radio" name="k3" value="1">ВАЗ, Daewoo, ЗАЗ</label>
+					<label><input type="radio" name="k3" value="1.25">Інші</label>
+				</div>
+
+			</form>
+			<div class="result">
+				Вартість полісу: <span id="result">—</span> грн
+			</div>
+			<div class="section">
+				<label for="note">Нотатка:</label>
+				<textarea id="note" rows="3" placeholder="Введіть додаткову інформацію..." style="width:100%;"></textarea>
+			</div>
+
+			<button type="button" id="sendTelegram">Надіслати в Telegram</button>
+			<p id="telegramStatus"></p>
+
+			<div data-spollers class="spollers">
+				<details class="spollers__item">
+					<summary class="spollers__title">Зони страхування</summary>
+					<div class="spollers__body">
+						<p class="text-zona">Зона 1 - Київ, Львів</p>
+						<p class="text-zona">Зона 2 - Дніпро, Одеса, Харків, Бориспіль, Боярка, Бровари, Буча, Васильків, Вишгород,
+							Вишневе, Ірпінь, Обухів</p>
+						<p class="text-zona">Зона 3 - Донецьк, Запоріжжя, Кривий Ріг</p>
+						<p class="text-zona">Зона 4 - Алчевськ, Бердянськ, Біла Церква, Вінниця, Горлівка, Євпаторія, Житомир,
+							Івано-Франківськ, Кам'янець-Подільський, Кам’янка (Дніпродзержинськ), Керч, Кропивницький (Кіровоград),
+							Краматорськ, Кременчук, Лисичанськ, Луганськ, Луцьк, Макіївка, Маріуполь, Мелітополь, Миколаїв, Нікополь,
+							Павлоград, Полтава, Рівне, Севастополь, Сєверодонецьк, Сімферополь, Слов'янськ, Суми, Тернопіль, Ужгород,
+							Херсон, Хмельницький, Черкаси, Чернівці, Чернігів</p>
+						<p class="text-zona">Зона 5.1 - "Львівська область: Борислав, Броди, Винники, Дрогобич, Дубляни, Жидачів,
+							Жовква, Золочів, Кам'янка-Бузька, Новий
+							Розділ, Новояворівськ, Пустомити, Самбір, Сокаль, Соснівка, Старий, Самбір, Стебник, Стрий, Трускавець,
+							Ходорів,
+							Шептицький, Яворів
+
+							Київська область: Баришівка, Березань, Богуслав, Бородянка, Винарівка, Гребінки, Іванків, Кагарлик,
+							Коцюбинське,
+							Макарів, Миронівка, Переяслав, Рокитне, Сквира, Славутич, Софіївська Борщагівка, Ставище, Тарасівка,
+							Тараща,
+							Тетіїв,
+							Узин, Українка, Фастів, Яготин"</p>
+						<p class="text-zona">Зона 5.2 - інші населені пункти України</p>
+						<p class="text-zona">Зона 6 - для транспортних засобів, які зареєстровані в інших країнах</p>
+					</div>
+				</details>
+				<details class="spollers__item">
+					<summary class="spollers__title">Страхові суми</summary>
+					<div class="spollers__body">
+						<p>Шкода заподіяна життю і здоров'ю потерпілих осіб 5 млн. грн. на один страховий випадок</p>
+						<p>на одну особу 500 000 грн.</p>
+						<p>Шкода, заподіяну майну потерпілих третіх осіб 1,250 млн. грн. на один страховий випадок</p>
+						<p>на одну потерпілу особу 250 000 грн.</p>
+					</div>
+				</details>
+				<details class="spollers__item">
+					<details class="spollers__item">
+						<summary class="spollers__title">Пояснення щодо спірних типів ТЗ по категоріям.</summary>
+						<div class="spollers__body">
+							<p>Пікапи, фургони (Citroen Berlingo, Fiat Doblo Cargo, Renault Kangoo, Volkswagen Caddy тощо) -
+								транспортні
+								засоби на базі шасі легкового ТЗ, але які згідно законодавства України відносяться до вантажних ТЗ (в
+								технічному паспорті вписано «вантажний» - підлягають страхування за типом С через відсутність ознак
+								пасажирського Т3).</p>
+							<p>Мінібуси (міні мікроавтобуси) (Mercedes-Benz Vito, Opel Vivaro, Renault Trafic, Volkswagen Transporter
+								тощо)
+								- транспортні засоби в пасажирській комплектації яких заводом-виробником передбачено не більше 8
+								пасажирських
+								місць, але які згідно законодавства України відносяться до «вантажних» або «вантажо-пасажирських» ТЗ
+								(підлягають страхування за типом С). Пасажирська комплектація таких ТЗ підлягає страхуванню за
+								відповідним
+								типом легкового ТЗ - В.
+							</p>
+							<p>- Мікроавтобуси (Hyundai Н-350, Mercedes-Benz Sprinter, Opel Movano, Peugeot Boxer, Renault Master,
+								Volkswagen Crafter тощо) - транспортні засоби в пасажирській комплектації яких заводом-виробником
+								передбачено
+								9 + пасажирських місць, та які згідно законодавства України відносяться до «вантажних» або
+								«вантажо-пасажирських» ТЗ - страхуються за відповідним типом вантажного ТЗ - С, а пасажирська
+								комплектація
+								таких ТЗ підлягає страхуванню за відповідним типом автобуса - D.</p>
+							<p>
+								- Гібриди (Honda CR-Z, Lexus RX400, Toyota Prius тощо) - транспортний засіб, який окрім звичайного
+								двигуна
+								внутрішнього згорання містить ще й електродвигун - страхуються аналогічно транспортним засобам з
+								двигуном
+								внутрішнього згорання (легкові - від об’єму двигуна; вантажні - від вантажопідйомності; автобуси - від
+								кількості місць для сидіння).
+							</p>
+						</div>
+					</details>
+			</div>
+			<a class="back-btn" href="../page/calc-ocv+dcv.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+						xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+						<g>
+							<path
+								d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+								fill="#000000" opacity="1" data-original="#000000"></path>
+						</g>
+					</svg></span> Назад</a>
+		</div>
+	</main>
+	<script src="/js/page/ocv-ur.js"></script>
+</body>
+
+</html>

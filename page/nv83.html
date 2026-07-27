@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/page/nv.css">
+	<title>Калькулятор страхування спортсменів</title>
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<a class="back-btn" href="../page/personal-insurance.html"><span><svg xmlns="http://www.w3.org/2000/svg"
+						version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24"
+						xml:space="preserve">
+						<g>
+							<path
+								d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+								fill="#000000" opacity="1" data-original="#000000"></path>
+						</g>
+					</svg></span> Назад</a>
+		</header>
+
+		<main class="main">
+			<div class="container">
+				<div class="calculator">
+
+					<h1>Страхування від НВ (спортсмени: дорослі та діти).</h1>
+
+					<!-- ВІК -->
+					<h2>Вік осіб</h2>
+
+					<div class="radio-group">
+
+						<label><input type="radio" name="age" value="2.2" data-group="child">Вік від 1 до 6 років</label>
+						<label><input type="radio" name="age" value="1.65" data-group="child">Вік від 7 до 17 років</label>
+						<label><input type="radio" name="age" value="1.1" data-group="adult" checked>Вік від 18 до 59 років</label>
+						<label><input type="radio" name="age" value="1.65" data-group="adult">Вік від 60 до 64 років</label>
+						<label><input type="radio" name="age" value="2.2" data-group="adult">Вік від 65 до 69 років</label>
+
+					</div>
+
+					<!-- СУМА -->
+					<h2>Страхова сума</h2>
+
+					<div class="range-box">
+
+						<input type="range" id="sum" min="5000" max="100000" step="5000" value="5000">
+
+						<div class="range-value">
+							<span id="sumValue">5 000</span> грн
+						</div>
+
+					</div>
+
+					<!-- СПОРТ -->
+					<h2>Види спорту</h2>
+
+					<div class="radio-group">
+
+						<label><input type="radio" name="sport" value="1.5" checked>C1 – некласичні або малорухливі види
+							спорту</label>
+						<label><input type="radio" name="sport" value="2">C2 – класичні спортивні види</label>
+						<label><input type="radio" name="sport" value="3">C3 – Змагальні види спорту з високим фізичним
+							навантаженням</label>
+						<label><input type="radio" name="sport" value="5">C4 – Екстремально‑змагальні види спорту</label>
+
+					</div>
+
+					<!-- ТЕРМІН -->
+					<h2>Термін дії договору</h2>
+
+					<select id="term">
+						<option value="1" selected>12 місяців – 1</option>
+						<option value="0.95">11 місяців – 0.95</option>
+						<option value="0.9">10 місяців – 0.9</option>
+						<option value="0.85">9 місяців – 0.85</option>
+						<option value="0.8">8 місяців – 0.8</option>
+						<option value="0.75">7 місяців – 0.75</option>
+						<option value="0.7">6 місяців – 0.7</option>
+						<option value="0.65">5 місяців – 0.65</option>
+						<option value="0.6">4 місяці – 0.6</option>
+						<option value="0.5">3 місяці – 0.5</option>
+						<option value="0.4">2 місяці – 0.4</option>
+						<option value="0.3">1 місяць – 0.3</option>
+						<option value="0.25">15–21 днів – 0.25</option>
+						<option value="0.2">8–14 днів – 0.2</option>
+						<option value="0.15">4–7 днів – 0.15</option>
+						<option value="0.1">до 3 днів – 0.1</option>
+					</select>
+
+					<!-- РЕЗУЛЬТАТ -->
+					<div class="result">
+						<h3>Вартість договору</h3>
+						<div class="price"><span id="result">0</span> грн</div>
+					</div>
+
+					<details class="spollers__item">
+						<summary class="spollers__title">Група С1</summary>
+						<div class="spollers__body">
+							Подорожі за спеціальними маршрутами (походи піші) та подорожі зі спокійним ландшафтом, шахи, шашки,
+							ходьба,
+							більярд,
+							карткові ігри (покер, блекджек тощо), кібер-спорт та інші подібні види спорту
+						</div>
+					</details>
+					<details class="spollers__item">
+						<summary class="spollers__title">Група С2</summary>
+						<div class="spollers__body">
+							Бадмінтон, буєрний спорт, волейбол, гімнастика художня, орієнтування спортивне, плавання (крім
+							підводного),
+							водне поло,
+							синхронне плавання, гольф, настільний теніс, городки, теніс, парусний спорт, художня гімнастика,
+							віндсерфінг,
+							радіоспорт, керлінг та інші подібні види спорту
+						</div>
+					</details>
+					<details class="spollers__item">
+						<summary class="spollers__title">Група С3</summary>
+						<div class="spollers__body">
+							Акробатика, батут, біатлон, бейсбол, водні лижі, гребля, веслування, боротьба (всі види), легка атлетика,
+							лижні
+							гонки,
+							планерний спорт, гирьовий спорт, важка атлетика, стрільба (всі види), пожежно-прикладний спорт, лижне
+							двоборство,
+							стрибки в воду, фехтування, спортивна гімнастика, велосипедний спорт (крім байкер-крос, BMX, дерт, дуал,
+							крос-кантрі,
+							маунтінбайкінг, тріал, флетленд, фрірайд, швидкісний спуск тощо), стрибки на батуті та інші подібні види
+							спорту
+						</div>
+					</details>
+					<details class="spollers__item">
+						<summary class="spollers__title">Група С4</summary>
+						<div class="spollers__body">
+							Баскетбол, бобслей, бокс, гандбол, дельтапланеризм, гірськолижний спорт, регбі, ковзанярський спорт,
+							підводний
+							спорт,
+							поло, санний спорт, спідвей, фрістайл, східні єдиноборства, кінний спорт, стрибки на лижах з трампліна,
+							шорт-трек,
+							футбол, сучасне п’ятиборство, хокей (всі види), багатоборство, велосипедний спорт (а саме байкер-крос,
+							BMX,
+							дерт, дуал,
+							крос-кантрі, маунтінбайкінг, тріал, флетленд, фрірайд, швидкісний спуск тощо), реслінг/армреслінг та інші
+							подібні види
+							спорту
+						</div>
+					</details>
+				</div>
+			</div>
+		</main>
+
+	</div>
+	<script src="/js/page/nv83.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!-- <!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Число прописом</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+		}
+
+		input {
+			padding: 5px;
+			font-size: 16px;
+			width: 200px;
+		}
+
+		#result {
+			margin-top: 15px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Введіть число (0 – 1 000 000 000):</h2>
+	<input type="number" id="numberInput" placeholder="Наприклад: 123456">
+	<div id="result"></div>
+
+	<script>
+		function numberToWords(num) {
+			const ones = ["", "один", "два", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять"];
+			const onesFem = ["", "одна", "дві", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять"];
+			const teens = ["десять", "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п'ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев'ятнадцять"];
+			const tens = ["", "", "двадцять", "тридцять", "сорок", "п'ятдесят", "шістдесят", "сімдесят", "вісімдесят", "дев'яносто"];
+			const hundreds = ["", "сто", "двісті", "триста", "чотириста", "п'ятсот", "шістсот", "сімсот", "вісімсот", "дев'ятсот"];
+
+			if (num === 0) return "нуль";
+
+			function threeDigitsToWords(n, feminine = false) {
+				let str = "";
+				if (n >= 100) {
+					str += hundreds[Math.floor(n / 100)] + " ";
+					n %= 100;
+				}
+				if (n >= 20) {
+					str += tens[Math.floor(n / 10)] + " ";
+					n %= 10;
+				}
+				if (n >= 10) {
+					str += teens[n - 10] + " ";
+					n = 0;
+				}
+				if (n > 0) {
+					str += (feminine ? onesFem[n] : ones[n]) + " ";
+				}
+				return str.trim();
+			}
+
+			function getForm(n, forms) {
+				// forms: [однина, родовий, множина]
+				n = Math.abs(n) % 100;
+				if (n > 10 && n < 20) return forms[2];
+				n = n % 10;
+				if (n === 1) return forms[0];
+				if (n >= 2 && n <= 4) return forms[1];
+				return forms[2];
+			}
+
+			let parts = [];
+			let billions = Math.floor(num / 1_000_000_000);
+			let millions = Math.floor((num % 1_000_000_000) / 1_000_000);
+			let thousands = Math.floor((num % 1_000_000) / 1000);
+			let rest = num % 1000;
+
+			if (billions > 0) {
+				parts.push(threeDigitsToWords(billions) + " " + getForm(billions, ["мільярд", "мільярди", "мільярдів"]));
+			}
+			if (millions > 0) {
+				parts.push(threeDigitsToWords(millions) + " " + getForm(millions, ["мільйон", "мільйони", "мільйонів"]));
+			}
+			if (thousands > 0) {
+				parts.push(threeDigitsToWords(thousands, true) + " " + getForm(thousands, ["тисяча", "тисячі", "тисяч"]));
+			}
+			if (rest > 0) {
+				parts.push(threeDigitsToWords(rest));
+			}
+
+			return parts.join(" ").trim();
+		}
+
+		document.getElementById("numberInput").addEventListener("input", function () {
+			const value = parseInt(this.value, 10);
+			const resultDiv = document.getElementById("result");
+			if (!isNaN(value) && value >= 0 && value <= 1_000_000_000) {
+				resultDiv.textContent = numberToWords(value);
+			} else {
+				resultDiv.textContent = "Введіть число від 0 до 1 000 000 000";
+			}
+		});
+	</script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Число прописом</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 20px;
+		}
+
+		.container {
+			max-width: 400px;
+			margin: auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+			background: #f9f9f9;
+		}
+
+		input {
+			padding: 8px;
+			font-size: 16px;
+			width: 100%;
+			border: 1px solid #aaa;
+			border-radius: 4px;
+		}
+
+		button {
+			margin-top: 10px;
+			padding: 8px 12px;
+			font-size: 16px;
+			background: #007acc;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		#result {
+			margin-top: 15px;
+			font-weight: bold;
+			color: #006400;
+			font-size: 18px;
+		}
+
+		@media (max-width: 480px) {
+			body {
+				margin: 10px;
+			}
+
+			#result {
+				font-size: 22px;
+			}
+
+			input,
+			button {
+				font-size: 18px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h2>Введіть число (0 – 1 000 000 000):</h2>
+		<input type="number" id="numberInput" placeholder="Наприклад: 123456" min="0" max="1000000000">
+		<button id="convertBtn">Перевести</button>
+		<button id="copyBtn">Скопіювати результат</button>
+		<div id="result"></div>
+	</div>
+
+	<script>
+		function numberToWords(num) {
+			const ones = ["", "один", "два", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять"];
+			const onesFem = ["", "одна", "дві", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять"];
+			const teens = ["десять", "одинадцять", "дванадцять", "тринадцять", "чотирнадцять", "п'ятнадцять", "шістнадцять", "сімнадцять", "вісімнадцять", "дев'ятнадцять"];
+			const tens = ["", "", "двадцять", "тридцять", "сорок", "п'ятдесят", "шістдесят", "сімдесят", "вісімдесят", "дев'яносто"];
+			const hundreds = ["", "сто", "двісті", "триста", "чотириста", "п'ятсот", "шістсот", "сімсот", "вісімсот", "дев'ятсот"];
+
+			if (num === 0) return "нуль";
+
+			function threeDigitsToWords(n, feminine = false) {
+				let str = "";
+				if (n >= 100) {
+					str += hundreds[Math.floor(n / 100)] + " ";
+					n %= 100;
+				}
+				if (n >= 20) {
+					str += tens[Math.floor(n / 10)] + " ";
+					n %= 10;
+				}
+				if (n >= 10) {
+					str += teens[n - 10] + " ";
+					n = 0;
+				}
+				if (n > 0) {
+					str += (feminine ? onesFem[n] : ones[n]) + " ";
+				}
+				return str.trim();
+			}
+
+			function getForm(n, forms) {
+				n = Math.abs(n) % 100;
+				if (n > 10 && n < 20) return forms[2];
+				n = n % 10;
+				if (n === 1) return forms[0];
+				if (n >= 2 && n <= 4) return forms[1];
+				return forms[2];
+			}
+
+			let parts = [];
+			let billions = Math.floor(num / 1_000_000_000);
+			let millions = Math.floor((num % 1_000_000_000) / 1_000_000);
+			let thousands = Math.floor((num % 1_000_000) / 1000);
+			let rest = num % 1000;
+
+			if (billions > 0) {
+				parts.push(threeDigitsToWords(billions) + " " + getForm(billions, ["мільярд", "мільярди", "мільярдів"]));
+			}
+			if (millions > 0) {
+				parts.push(threeDigitsToWords(millions) + " " + getForm(millions, ["мільйон", "мільйони", "мільйонів"]));
+			}
+			if (thousands > 0) {
+				parts.push(threeDigitsToWords(thousands, true) + " " + getForm(thousands, ["тисяча", "тисячі", "тисяч"]));
+			}
+			if (rest > 0) {
+				parts.push(threeDigitsToWords(rest));
+			}
+
+			return parts.join(" ").trim();
+		}
+
+		function getCurrencyForm(n, forms) {
+			n = Math.abs(n) % 100;
+			if (n > 10 && n < 20) return forms[2];
+			n = n % 10;
+			if (n === 1) return forms[0];
+			if (n >= 2 && n <= 4) return forms[1];
+			return forms[2];
+		}
+
+		function formatNumber(numStr) {
+			// замінюємо кому на крапку для парсингу
+			numStr = numStr.replace(",", ".");
+			let [whole, fraction] = numStr.split(".");
+			// додаємо пробіли як роздільники тисяч
+			whole = whole.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+			return fraction ? whole + "," + fraction : whole;
+		}
+
+		document.getElementById("convertBtn").addEventListener("click", function () {
+			let value = document.getElementById("numberInput").value.trim();
+			const resultDiv = document.getElementById("result");
+
+			if (!value) {
+				resultDiv.textContent = "Введіть число";
+				return;
+			}
+
+			const num = parseFloat(value.replace(",", "."));
+			if (isNaN(num) || num < 0 || num > 1_000_000_000) {
+				resultDiv.textContent = "Введіть коректне число від 0 до 1 000 000 000";
+				return;
+			}
+
+			const whole = Math.floor(num);
+			const fraction = Math.round((num - whole) * 100);
+
+			let text = numberToWords(whole) + " " + getCurrencyForm(whole, ["гривня", "гривні", "гривень"]);
+			if (fraction > 0) {
+				text += " " + fraction + " " + getCurrencyForm(fraction, ["копійка", "копійки", "копійок"]);
+			}
+
+			// показуємо і форматоване число, і текст
+			resultDiv.textContent = formatNumber(value) + " → " + text;
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/page/nv.css">
+	<title>Калькулятор страхування від нещасних випадків</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<a class="back-btn" href="../page/personal-insurance.html"><span><svg xmlns="http://www.w3.org/2000/svg"
+						version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24"
+						xml:space="preserve">
+						<g>
+							<path
+								d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+								fill="#000000" opacity="1" data-original="#000000"></path>
+						</g>
+					</svg></span> Назад</a>
+		</header>
+		<main class="main">
+			<div class="container">
+				<div class="calculator">
+
+					<h1>Страхування від НВ (дорослі та діти).</h1>
+
+					<!-- Вік -->
+					<h2>Вік застрахованої особи</h2>
+
+					<div class="radio-group">
+
+						<label>
+							<input type="radio" name="age" value="1.1" data-group="child">
+							Вік від 1 до 6 років
+						</label>
+
+						<label>
+							<input type="radio" name="age" value="0.825" data-group="child">
+							Вік від 7 до 17 років
+						</label>
+
+						<label>
+							<input type="radio" name="age" value="0.55" data-group="adult" checked>
+							Вік від 18 до 59 років
+						</label>
+
+						<label>
+							<input type="radio" name="age" value="0.825" data-group="adult">
+							Вік від 60 до 64 років
+						</label>
+
+						<label>
+							<input type="radio" name="age" value="1.1" data-group="adult">
+							Вік від 65 до 69 років
+						</label>
+
+					</div>
+
+					<!-- Страхова сума -->
+					<h2>Страхова сума</h2>
+
+					<div class="range-box">
+
+						<input type="range" id="insuranceAmount" min="5000" max="100000" step="5000" value="5000">
+
+						<div class="range-value">
+							<span id="amountValue">5 000</span> грн
+						</div>
+
+					</div>
+
+					<!-- Види спорту -->
+					<h2>Види спорту</h2>
+
+					<div class="radio-group">
+
+						<label>
+							<input type="radio" name="sport" value="1" checked>
+							Без спорту
+						</label>
+
+						<label>
+							<input type="radio" name="sport" value="1.5">
+							C1 – Не професійне заняття активними видами спорту
+						</label>
+
+						<label>
+							<input type="radio" name="sport" value="2">
+							C2 – Не професійне заняття активними ризиковими видами спорту
+						</label>
+
+					</div>
+
+					<!-- Результат -->
+					<div class="result">
+
+						<h3>Вартість договору страхування</h3>
+
+						<div class="price">
+							<span id="result">28</span> грн
+						</div>
+
+					</div>
+					<details class="spollers__item">
+						<summary class="spollers__title">Група С1</summary>
+						<div class="spollers__body">
+							Не професійне заняття активними видами спорту (подорожі за спеціальними маршрутами (походи піші) та
+							подорожі
+							зі
+							спокійним ландшафтом, шахи, шашки, ходьба, більярд, карткові ігри (покер, блекджек тощо), кібер-спорт та
+							інші
+							подібні
+							види спорту; бадмінтон, буєрний спорт, волейбол, гімнастика художня, орієнтування спортивне, плавання
+							(крім
+							підводного),
+							водне поло, синхронне плавання, гольф, настільний теніс, городки, теніс, парусний спорт, художня
+							гімнастика,
+							віндсерфінг, радіоспорт, керлінг та інші подібні види спорту)
+						</div>
+					</details>
+					<details class="spollers__item">
+						<summary class="spollers__title">Група С2</summary>
+						<div class="spollers__body">
+							Не професійне заняття активними ризиковими видами спорту (Акробатика, батут, біатлон, бейсбол, водні лижі,
+							гребля,
+							веслування, боротьба (всі види), легка атлетика, лижні гонки, планерний спорт, гирьовий спорт, важка
+							атлетика,
+							стрільба
+							(всі види), пожежно-прикладний спорт, лижне двоборство, стрибки в воду, фехтування, спортивна гімнастика,
+							велосипедний спорт (крім байкер-крос, BMX, дерт, дуал, крос-кантрі, маунтінбайкінг, тріал,
+							флетленд, фрірайд, швидкісний спуск тощо), стрибки на батуті та інші подібні види спорту, баскетбол,
+							бобслей,
+							бокс,
+							гандбол, дельтапланеризм, гірськолижний спорт, регбі, ковзанярський спорт, підводний спорт, поло, санний
+							спорт,
+							спідвей,
+							фрістайл, східні єдиноборства, кінний спорт, стрибки на лижах з трампліна, шорт-трек, футбол, сучасне
+							п’ятиборство,
+							хокей (всі види), багатоборство, велосипедний спорт (а саме байкер-крос, BMX, дерт, дуал, крос-кантрі,
+							маунтінбайкінг,
+							тріал, флетленд, фрірайд, швидкісний спуск тощо), реслінг/армреслінг та інші подібні види спорту
+						</div>
+					</details>
+				</div>
+			</div>
+		</main>
+
+	</div>
+	<script src="/js/page/nv82.js"></script>
+
+</body>
+
+</html>

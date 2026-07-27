@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>КАСКО Калькулятор</title>
+	<link rel="stylesheet" href="/css/page/calck50.css">
+</head>
+
+<body>
+
+
+	<div class="container">
+		<a class="back-btn" href="../page/page-kasko.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+					<g>
+						<path
+							d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+							fill="#000000" opacity="1" data-original="#000000"></path>
+					</g>
+				</svg></span> Назад</a>
+		<h1>291 КАСКО Калькулятор</h1>
+
+		<div class="section">
+			<label>Страхова сума</label>
+			<input type="number" id="k1" placeholder="Введіть вартість авто" min="0">
+		</div>
+
+		<div class="section">
+			<label>Вартість ТЗ</label>
+			<select id="k2">
+				<option value="l0">До 20000 $</option>
+				<option value="l1">Від 20000 до 50000 $</option>
+				<option value="l2">Більше 50000 $</option>
+			</select>
+		</div>
+
+		<div class="section" id="k3-section">
+			<label>Марка ТЗ</label>
+			<div id="k3-options"></div>
+		</div>
+
+		<div class="section" id="k10-section">
+			<label>Тип двигуна</label>
+			<label><input type="radio" name="k10" value="1" checked>Звичайний</label>
+			<label><input type="radio" name="k10" value="1.20">Електро</label>
+		</div>
+
+		<div class="section" id="program-section">
+			<label>Програма:</label>
+			<label><input type="radio" name="program" value="standard" checked> Стандартна</label>
+			<label><input type="radio" name="program" value="imported"> Ввезені та розмитнені</label>
+		</div>
+
+		<div class="section">
+			<label>Франшиза</label>
+			<select id="k4">
+				<option value="0">Зробіть вибір</option>
+				<option value="1.2">0%</option>
+				<option value="1">0,5%</option>
+				<option value="0.93">1%</option>
+				<option value="0.9">2%</option>
+				<option value="0.8">5%</option>
+			</select>
+		</div>
+
+		<div class="section" id="k5-section">
+			<label>Франшиза скло</label>
+			<label><input type="radio" name="k5" value="1" checked> ТАК</label>
+			<label><input type="radio" name="k5" value="1.07"> НІ</label>
+		</div>
+
+		<div class="section">
+			<label>Рік випуску авто</label>
+			<select id="k6">
+				<option value="1">2024</option>
+				<option value="1.1">2023</option>
+				<option value="1.22">2022</option>
+				<option value="1.33">2021</option>
+				<option value="1.5">2020</option>
+				<option value="1.65">2019</option>
+				<option value="1.85">2018</option>
+				<option value="2">2017</option>
+				<option value="2.3">2016</option>
+			</select>
+		</div>
+
+		<div class="section">
+			<label>Вік осіб, допущених до керування</label>
+			<label><input type="radio" name="k7" value="1.23" checked>Будь-який</label>
+			<label><input type="radio" name="k7" value="1">21 і більше</label>
+		</div>
+
+		<div class="section" id="k8-section">
+			<label>Вибір СТО</label>
+			<div id="k8-options"></div>
+		</div>
+
+		<div class="section">
+			<div class="result" id="result">Вартість: 0,00 грн</div>
+		</div>
+
+		<div class="section">
+			<label>Нотатки:</label>
+			<textarea id="note" rows="3"></textarea>
+		</div>
+
+		<div class="section">
+			<button type="button" onclick="sendTelegram()">Надіслати в Telegram</button>
+			<p id="telegramStatus"></p>
+		</div>
+		<a class="back-btn" href="../page/page-kasko.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve">
+					<g>
+						<path
+							d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z"
+							fill="#000000" opacity="1" data-original="#000000"></path>
+					</g>
+				</svg></span> Назад</a>
+	</div>
+
+	<script src="/js/page/calck50.js"></script>
+
+</body>
+
+</html>

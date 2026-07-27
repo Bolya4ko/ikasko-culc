@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КАСКО від військових ризиків</title>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/page/calck-mil.css">
+</head>
+<body>
+
+
+
+<div class="calculator">
+					<a class="back-btn" href="../page/page-kasko.html"><span><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 24 24" xml:space="preserve"><g><path d="M22 11H4.414l5.293-5.293a1 1 0 1 0-1.414-1.414l-7 7a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414-1.414L4.414 13H22a1 1 0 0 0 0-2z" fill="#000000" opacity="1" data-original="#000000"></path></g></svg></span> Назад</a>
+    <h2>КАСКО від військових ризиків</h2>
+    <label for="k1">К1 - Страхова сума (грн):</label>
+    <input type="number" id="k1" min="100000" max="8000000" placeholder="Введіть суму">
+
+    <label for="k2">К2 - Вік ТЗ:</label>
+    <select id="k2">
+        <option value="0.0199">до 1 року</option>
+        <option value="0.0199">1 рік</option>
+        <option value="0.0199">2 роки</option>
+        <option value="0.0199">3 роки</option>
+        <option value="0.0199">4 роки</option>
+    </select>
+
+    <div class="result" id="result">Вартість страхування: 0 грн.</div>
+
+    <label for="notes">Нотатки:</label>
+    <textarea id="notes" rows="3" placeholder="Введіть додаткову інформацію"></textarea>
+
+    <button onclick="sendToTelegram()">Відправити в Telegram</button>
+
+</div>
+
+<script src="/js/page/calck-mil.js"></script>
+</body>
+</html>
