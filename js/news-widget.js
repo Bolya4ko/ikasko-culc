@@ -5,9 +5,8 @@ async function loadNewsWidget() {
 	try {
 
 		const response = await fetch(
-			"https://ТВІЙ-СЕРВЕР/api/news"
+			"https://ikasko-news-engine.onrender.com/api/news"
 		);
-
 
 		const result = await response.json();
 
@@ -24,20 +23,18 @@ async function loadNewsWidget() {
 						${item.source}
 					</div>
 
-
 					<h3>
 						${item.title}
 					</h3>
-
 
 					<p>
 						${item.description || ""}
 					</p>
 
-
 					<a 
 						href="${item.url}"
-						target="_blank">
+						target="_blank"
+						rel="noopener">
 
 						Читати →
 

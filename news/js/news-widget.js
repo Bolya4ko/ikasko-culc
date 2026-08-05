@@ -1,5 +1,5 @@
 const API_URL = "https://ikasko-news-engine.onrender.com/api/news";
-const NO_IMAGE = "images/no-image.jpg";
+const NO_IMAGE = "images/no-image.webp"
 
 async function loadNewsWidget() {
 
