@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/null.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/news-widget.css">
 	<title>Калькулятор</title>
 </head>
 
@@ -27,20 +28,53 @@
 					<a class="program__link" href="page/calc-data.html">Калькулятор дат</a>
 				</div>
 			</div>
+
 			<div class="services">
 				<div class="container">
 					<h4 class="services__title">Корисні сервіси</h4>
-					<a class="services__link" target="_blank" href="https://slovnyk.ua/translit.php">Трансліт</a>
-					<a class="services__link" target="_blank" href="page/number-to-words-ua.html">Конвертер чисел у текст
-						(UAH)</a>
-					<a class="services__link" target="_blank" href="https://policy.mtsbu.ua/?SearchType=Contract">Перевірка
-						чинності полісу МТСБУ</a>
-					<a class="services__link" target="_blank" href="https://ind-kod.org.ua/ua/">Перевірка ІПН</a>
-					<a class="services__link" target="_blank" href="https://auto.ria.com/uk/">AutoRia</a>
-					<a class="services__link" target="_blank" href="https://rst.ua/ukr/">RST</a>
-					<a class="services__link" target="_blank" href="https://automoto.ua/uk/">Авто/Мото</a>
+					<a class="services__link" href="news/">📰 Новини страхування</a>
+					<section class="news-widget">
+						<a class="services__link" target="_blank" href="https://slovnyk.ua/translit.php">Трансліт</a>
+						<a class="services__link" target="_blank" href="page/number-to-words-ua.html">Конвертер чисел у текст
+							(UAH)</a>
+						<a class="services__link" target="_blank" href="https://policy.mtsbu.ua/?SearchType=Contract">Перевірка
+							чинності полісу МТСБУ</a>
+						<a class="services__link" target="_blank" href="https://ind-kod.org.ua/ua/">Перевірка ІПН</a>
+						<a class="services__link" target="_blank" href="https://auto.ria.com/uk/">AutoRia</a>
+						<a class="services__link" target="_blank" href="https://rst.ua/ukr/">RST</a>
+						<a class="services__link" target="_blank" href="https://automoto.ua/uk/">Авто/Мото</a>
 				</div>
 			</div>
+
+
+			<section class="news-widget">
+
+				<div class="container">
+
+					<h2 class="news-widget-title">
+						📰 Останні новини страхування
+					</h2>
+
+					<div id="featuredNewsWidget"></div>
+
+					<div id="newsWidget" class="news-widget-grid">
+
+					</div>
+
+					<div class="news-widget-footer">
+
+						<a class="news-widget-button" href="news/">
+
+							Усі новини →
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</section>
+
 		</main>
 		<footer class="footer">
 			<div class="container">
@@ -54,6 +88,7 @@
 			</div>
 		</footer>
 	</div>
+	<script src="js/news-widget.js"></script>
 </body>
 
 </html>
