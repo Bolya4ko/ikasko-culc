@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Калькулятор витрат на автомобіль</title>
+
+	<meta name="description"
+		content="Калькулятор вартості поїздки, витрати пального, запасу ходу автомобіля та електромобіля.">
+
+	<meta name="keywords" content="калькулятор пального, калькулятор поїздки, запас ходу, витрата палива">
+
+	<meta name="theme-color" content="#204065">
+
+	<link rel="stylesheet" href="css/trip-calculator.css">
+
+</head>
+
+<body>
+
+	<header class="page-header">
+
+		<div class="container">
+
+			<h1>
+
+				🚗 Калькулятор витрат на автомобіль
+
+			</h1>
+
+			<p>
+
+				Розрахуйте вартість поїздки,
+				середню витрату пального,
+				запас ходу автомобіля,
+				а також вартість одного кілометра.
+
+			</p>
+
+		</div>
+
+	</header>
+
+
+	<main class="container">
+
+		<div class="card">
+
+			<section id="trip" class="tab-content active">
+
+				<h2 class="section-title">
+
+					Розрахунок вартості поїздки
+
+				</h2>
+
+				<p class="section-description">
+
+					Вкажіть параметри поїздки.
+
+					Результат розраховується автоматично.
+
+				</p>
+
+				<div class="grid grid-2">
+
+					<!-- Вид пального -->
+
+					<div>
+
+						<label>
+
+							Вид пального
+
+						</label>
+
+						<div class="fuel-group">
+
+							<label class="fuel-option">
+
+								<input type="radio" name="fuelType" value="petrol" checked>
+
+								<span>
+
+									⛽ Бензин
+
+								</span>
+
+							</label>
+
+							<label class="fuel-option">
+
+								<input type="radio" name="fuelType" value="diesel">
+
+								<span>
+
+									🚙 Дизель
+
+								</span>
+
+							</label>
+
+							<label class="fuel-option">
+
+								<input type="radio" name="fuelType" value="gas">
+
+								<span>
+
+									🔥 Газ
+
+								</span>
+
+							</label>
+
+							<label class="fuel-option">
+
+								<input type="radio" name="fuelType" value="electric">
+
+								<span>
+
+									⚡ Електро
+
+								</span>
+
+							</label>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="divider"></div>
+
+				<div class="grid grid-2">
+
+					<div>
+
+						<label for="tripDistance">
+
+							Відстань
+
+						</label>
+
+						<input id="tripDistance" inputmode="decimal" autocomplete="off" type="number" min="0" step="0.1"
+							placeholder="Наприклад: 250">
+
+						<div class="hint" id="distanceHint">
+
+							км
+
+						</div>
+
+					</div>
+
+					<!-- Витрата -->
+
+					<div>
+
+						<label for="tripConsumption">
+
+							Середня витрата
+
+						</label>
+
+						<input id="tripConsumption" type="number" autocomplete="off" inputmode="decimal" min="0" value="7.5"
+							step="0.1" placeholder="Наприклад: 7.5">
+
+						<div class="hint" id="consumptionUnit">
+
+							л / 100 км
+
+						</div>
+
+					</div>
+
+					<!-- Ціна -->
+
+					<div>
+
+						<label for="fuelPrice">
+
+							Вартість пального
+
+						</label>
+
+						<input id="fuelPrice" type="number" autocomplete="off" inputmode="decimal" min="0" value="58" step="0.01"
+							placeholder="Наприклад: 58.99">
+
+						<div class="hint" id="priceUnit">
+
+							грн / л
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- ========================= -->
+				<!-- Результати -->
+				<!-- ========================= -->
+
+				<div class="results-grid">
+
+					<div class="result-card">
+
+						<div class="result-title">
+							Загальна відстань
+						</div>
+
+						<div class="result-value" data-result="distance">
+
+							—
+
+						</div>
+
+					</div>
+
+
+					<div class="result-card">
+
+						<div class="result-title">
+							Необхідно пального
+						</div>
+
+						<div class="result-value" data-result="fuel">
+
+							—
+
+						</div>
+
+					</div>
+
+
+					<div class="result-card">
+
+						<div class="result-title">
+							Загальна вартість
+						</div>
+
+						<div class="result-value" data-result="cost">
+
+							—
+
+						</div>
+
+					</div>
+
+
+					<div class="result-card">
+
+						<div class="result-title">
+							Вартість 1 км
+						</div>
+
+						<div class="result-value" data-result="costKm">
+
+							—
+
+						</div>
+
+					</div>
+
+
+					<div class="result-card">
+
+						<div class="result-title">
+							Вартість 100 км
+						</div>
+
+						<div class="result-value" data-result="cost100">
+
+							—
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- ========================= -->
+				<!-- Кнопка -->
+				<!-- ========================= -->
+
+				<div class="mt-30">
+
+					<button type="button" id="clearTrip" class="btn btn-secondary">
+
+						🗑 Очистити
+
+					</button>
+
+				</div>
+
+			</section>
+
+			<!-- Кінець вкладки "Поїздка" -->
+			<!-- ================================================= -->
+			<!-- ВКЛАДКА "СЕРЕДНЯ ВИТРАТА" -->
+			<!-- ================================================= -->
+
+			<section id="consumption" class="tab-content">
+
+				<h2 class="section-title">
+
+					Калькулятор середньої витрати
+
+				</h2>
+
+				<p class="section-description">
+
+					Введіть кількість використаного пального та пройдену
+					відстань. Витрата буде розрахована автоматично.
+
+				</p>
+
+				<div class="grid grid-2">
+
+					<!-- Вид пального -->
+
+					<div>
+
+						<label>
+
+							Вид пального
+
+						</label>
+
+						<div class="fuel-group">
+
+							<label class="fuel-option">
+
+								<input type="radio" name="consFuelType" value="benzine" checked>
+
+								<span>
+
+									⛽ Бензин
+
+								</span>
+
+							</label>
+
+							<label class="fuel-option">
+
+								<input type="radio" name="consFuelType" value="diesel">
+
+								<span>
+
+									🚙 Дизель
+
+								</span>
+
+							</label>
+
+							<label class="fuel-option">
+
+								<input type="radio" name="consFuelType" value="gas">
+
+								<span>
+
+									🔥 Газ
+
+								</span>
+
+							</label>
+
+							<label class="fuel-option">
+
+								<input type="radio" name="consFuelType" value="electric">
+
+								<span>
+
+									⚡ Електро
+
+								</span>
+
+							</label>
+
+						</div>
+
+					</div>
+
+					<!-- Порожня колонка -->
+
+					<div></div>
+
+					<!-- Заправлено -->
+
+					<div>
+
+						<label for="fuelUsed">
+
+							Використано пального
+
+						</label>
+
+						<input id="fuelUsed" type="number" autocomplete="off" inputmode="decimal" min="0" step="0.01"
+							placeholder="Наприклад: 42">
+
+						<div class="hint" id="fuelUsedUnit">
+
+							літрів
+
+						</div>
+
+					</div>
+
+					<!-- Відстань -->
+
+					<div>
+
+						<label for="consDistance">
+
+							Пройдена відстань
+
+						</label>
+
+						<input id="consDistance" type="number" autocomplete="off" inputmode="decimal" min="0" step="0.1"
+							placeholder="Наприклад: 620">
+
+						<div class="hint">
+
+							км
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<!-- ========================================= -->
+				<!-- Результат -->
+				<!-- ========================================= -->
+
+				<div class="range-box">
+
+					<h2>
+
+						Середня витрата
+
+					</h2>
+
+					<div class="range-distance" data-consumption="average">
+
+						—
+
+					</div>
+
+					<div class="range-unit" id="averageConsumptionUnit">
+
+						л / 100 км
+
+					</div>
+
+				</div>
+
+				<!-- ========================================= -->
+				<!-- Інформаційний блок -->
+				<!-- ========================================= -->
+
+				<div class="info-box">
+
+					Формула розрахунку:
+
+					<br><br>
+
+					<strong>
+
+						(Використане паливо × 100) ÷ Відстань
+
+					</strong>
+
+				</div>
+
+				<div class="mt-30">
+
+					<button type="button" id="clearConsumption" class="btn btn-secondary">
+
+						🗑 Очистити
+
+					</button>
+
+				</div>
+
+			</section>
+			<div class="divider"></div>
+
+
+		</div>
+
+	</main>
+	<div id="toast"></div>
+
+	<footer class="page-footer">
+
+		<div class="container">
+
+			<p>
+
+				© 2026 iKasko.com.ua
+
+			</p>
+
+		</div>
+		<div class="fuel-update">
+			Ціни палива оновлено:
+			<span class="fuelUpdated">
+				<label>
+					Вартість палива:
+					<input id="fuelPrice">
+				</label>
+
+				<div id="fuelUpdated"></div>
+			</span>
+		</div>
+
+	</footer>
+	<script src="js/common.js"></script>
+	<script src="js/trip-calculator.js"></script>
+
+</body>
+
+</html>

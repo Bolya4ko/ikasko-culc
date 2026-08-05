@@ -1,0 +1,22 @@
+{
+	"petrol": {
+		"title": "Бензин",
+		"unit": "л / 100 км",
+		"priceUnit": "грн / л"
+	},
+	"diesel": {
+		"title": "Дизель",
+		"unit": "л / 100 км",
+		"priceUnit": "грн / л"
+	},
+	"gas": {
+		"title": "Газ",
+		"unit": "л / 100 км",
+		"priceUnit": "грн / л"
+	},
+	"electric": {
+		"title": "Електро",
+		"unit": "кВт·год / 100 км",
+		"priceUnit": "грн / кВт·год"
+	}
+}
