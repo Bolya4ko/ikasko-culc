@@ -1,0 +1,52 @@
+name: Update Fuel Prices
+
+on:
+  schedule:
+    # Кожну годину
+    - cron: '0 * * * *'
+
+  # Можна запускати вручну з вкладки Actions
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-fuel-prices:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./culk_gaz
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: culk_gaz/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update fuel prices
+        run: node scripts/update-fuel-prices.js
+
+      - name: Commit updated fuel prices
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add culk_gaz/data/fuel-prices.json
+
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Автоматичне оновлення цін на пальне"
+            git push
+          fi
